@@ -104,6 +104,38 @@ training_args = TrainingArguments(
 
 ## Error Analysis
 
+False Negatives and False Positives were analysed to understand the errors made by the models. 
+
+### False Negatives
+1) Label Noise - These were reviews where the review was actually negative however it had the wrong label.
+
+"new owners turned it into a double threat bad food and bad service shame i loved this place"
+
+2) Mixed Sentiment - These errors were due to long reviews with both positive and negative words, with the model choosing to focus on negative words
+
+"i have been renting a home from principal property management for years although we initially had some bumps and misunderstandings it has overall been a very positive experience i have had some pretty major issues at my home with the ac and refrigerator going out and all was resolved"
+
+3) Keyword Confusion/ Context
+
+"i have a feeling people only write reviews about party supply places if they have a bad experience so let me change that up jumpmaxx is a great company.."
+
+
+### False Positives 
+
+1) Sarcasm/Irony
+
+"surrey's is allegedly the best breakfast in new orleans yelpers talk about it like it will change your life i do not understand and i never will i have eaten at surrey's three times in the past year and each time my order has been borderline"
+
+2) Mixed Sentiment
+
+"i just moved in nearby so my friends and i stopped in la va for a mid moving rest lunch we were a little disappointed but not entirely let down the place itself has a good vibe so i would consider going back to hang out with a coffee we ordered sandwiches because we were starving after moving"
+
+3) Negation Missed
+
+"the reviews seemed promising maybe they had an off night but the food here was not good"
+
+
+
 ## Conclusion
 
 ## How to Run
