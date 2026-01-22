@@ -5,6 +5,7 @@ This project explores sentiment analysis of reviews from Yelp. While traditional
 ## Data Description 
 
 Source: https://www.kaggle.com/datasets/ranjulajayarathna/cleaned-yelp-dataset-restaurants-and-reviews?resource=download&select=sampled_yelp_reviews.csv
+
 Text Data: Customer Reviews
 Labels: Positive, Negative
 
@@ -22,11 +23,31 @@ The top 10 words in positive reviews are [('great', 2748), ('place', 2302), ('fo
 
 The top 10 words in negative reviews are [('food', 622), ('place', 511), ('service', 435), ('good', 337), ('time', 325), ('like', 304), ('one', 299), ('get', 288), ('would', 260), ('order', 250)]
 
+Even after removing standard stopwords (like the, and, is), words like food, place, service are still common but don’t carry strong positive/negative sentiment. Bigrams were added to obtain more contextual information in the text.
 
+Top Positive Bigrams:
 
+[('great food', 193), ('great service', 180), ('love place', 165), ('staff friendly', 158), ('great place', 152), ('food great', 150), ('highly recommend', 146), ('really good', 144), ('new orleans', 132), ('ice cream', 131)]
+
+Top Negative Bigrams:
+
+[('customer service', 68), ('food good', 38), ('tasted like', 37), ('15 minutes', 31), ('don know', 28), ('food service', 24), ('second time', 22), ('20 minutes', 22), ('terrible service', 20), ('long time', 19)]
 
 
 ## Methodology
+
+The dataset was split into 70% train, 15% validation and 15% test. It was then converted into numerical features using TfidVectorizer, ignoring terms that appear in less than 3 reviews and terms that appear in more than 80% of reviews.
+
+
+
+
+
+Linear Support Vector Machine was chosen as the baseline model (why). 
+
+
+
+
+
 
 ## Results 
 
