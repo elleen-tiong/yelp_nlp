@@ -147,6 +147,8 @@ False Negatives and False Positives were analysed to understand the errors made 
 
 ## Conclusion
 
+This project compared classical and transformer-based approaches for sentiment analysis on customer reviews. The Linear SVM with TF-IDF features provided a strong baseline with fast training and good overall accuracy (0.89), but struggled with subtle negative sentiment. Fine-tuning DistilBERT improved overall accuracy to 0.93 and significantly increased detection of negative reviews, demonstrating the model’s ability to capture context and mixed sentiment. These results highlight that while classical models are efficient and competitive on simple datasets, transformer-based models excel when nuanced language understanding is required. Future work could explore larger datasets, additional contextual features, or ensemble methods to further improve performance.
+
 ## How to Run
 
 
