@@ -39,24 +39,24 @@ Top Negative Bigrams:
 
 ## Methodology
 
-The dataset was split into 70% train, 15% validation and 15% test. It was then converted into numerical features using TfidVectorizer, ignoring terms that appear in less than 3 reviews and terms that appear in more than 80% of reviews.
+The dataset was split into 70% train, 15% validation and 15% test. It was then converted into numerical features using TfidVectorizer, ignoring terms that appear in less than 3 reviews and terms that appear in more than 80% of reviews. ngram_range was set at (1,2) to include both unigrams and bigrams.
 
+```
+vectorizer = TfidfVectorizer(
+    ngram_range=(1,2),  
+    stop_words='english', 
+    min_df=3, 
+    max_df=0.8, 
+    sublinear_tf=True
+)
+```
+Linear Support Vector Machine was chosen as the baseline model (why), with the regularisation parameter C = 1 and class_weight = "balanced" to counteract the imbalanced classes.
 
-
-
-
-Linear Support Vector Machine was chosen as the baseline model (why). 
-
-
-
-
-
+DistilBert was selected as the transformer model 
 
 ## Results 
 
 ## Error Analysis
-
-## Discussion 
 
 ## Conclusion
 
