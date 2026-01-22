@@ -39,7 +39,7 @@ Top Negative Bigrams:
 
 ## Methodology
 
-The dataset was split into 70% train, 15% validation and 15% test. It was then converted into numerical features using TfidVectorizer, ignoring terms that appear in less than 3 reviews and terms that appear in more than 80% of reviews. ngram_range was set at (1,2) to include both unigrams and bigrams.
+The dataset was split into 70% train, 15% validation and 15% test. It was then converted into numerical features using TfidVectorizer, ignoring terms that appear in less than 3 reviews and terms that appear in more than 80% of reviews. ngram_range was set at (1,2) to include both unigrams and bigrams. Sublinear_tf scaling (term frequency) was set to True to prevent long reviews from dominating.
 
 ```
 vectorizer = TfidfVectorizer(
