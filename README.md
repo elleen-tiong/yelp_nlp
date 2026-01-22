@@ -101,7 +101,16 @@ training_args = TrainingArguments(
 
 ## Results 
 
+###Final Test - Linear SVM
 
+The final model maintained strong performance on the unseen test set, achieving an accuracy of approximately 89% and a macro-averaged F1 score of around 0.83.
+Negative class F1 score was 0.74, while positive class F1 score was 0.93. There was a slight bias towards the positive class due to class imbalance.
+
+###Final Test - DistilBert
+
+DistilBERT achieved 93% accuracy on the test set, a 10% improvement on the Linear SVM model. It also achieved an F1 score of 0.84 for negative reviews and 0.96 for positive reviews. Compared to the Linear SVM baseline, DistilBERT improved detection of negative sentiment while maintaining high performance on positive reviews.
+
+    
 ## Error Analysis
 
 False Negatives and False Positives were analysed to understand the errors made by the models. 
