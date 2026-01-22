@@ -50,7 +50,7 @@ vectorizer = TfidfVectorizer(
     sublinear_tf=True
 )
 ```
-Linear Support Vector Machine was chosen as the baseline model (why), with the regularisation parameter C = 1 and class_weight = "balanced" to counteract the imbalanced classes.
+Linear Support Vector Machine was chosen as the baseline model (why), with the regularisation parameter C = 1 and class_weight = "balanced" to counteract the imbalanced classes. Performance was evaluated on accuracy, precision, recall, and F1 score.
 
 ```
 svm = LinearSVC(
@@ -58,9 +58,49 @@ svm = LinearSVC(
     class_weight="balanced"  
 )
 ```
-DistilBert was selected as the transformer model 
+DistilBert was selected as the transformer model. A pre-trained DistilBERT model (distilbert-base-uncased) for sentiment classification was selected.
+
+```
+model_name = "distilbert-base-uncased"
+```
+
+Reviews were tokenized using DistilBertTokenizerFast, padded and truncated to a maximum length of 128 tokens.
+
+```
+tokenizer = DistilBertTokenizerFast.from_pretrained(model_name)
+
+# DistilBERT for classification (num_labels = 2 for binary)
+model = DistilBertForSequenceClassification.from_pretrained(
+    model_name,
+    num_labels=2
+)
+
+# Tokenize
+train_encodings = tokenizer(train_texts, truncation=True, padding=True, max_length=128)
+val_encodings = tokenizer(val_texts, truncation=True, padding=True, max_length=128)
+test_encodings = tokenizer(test_texts, truncation=True, padding=True, max_length=128)
+
+```
+
+The model was trained on our dataset for 3 epochs using the Hugging Face Trainer API. Similar to the baseline model, performance was evaluated on the test set using accuracy, precision, recall, and F1 score.
+
+```
+
+training_args = TrainingArguments(
+    output_dir="./results",
+    num_train_epochs=3,
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=16,
+    learning_rate=5e-5,
+    eval_strategy="epoch",
+    save_strategy="epoch",
+    logging_dir="./logs",
+    logging_steps=50,
+)
+```
 
 ## Results 
+
 
 ## Error Analysis
 
