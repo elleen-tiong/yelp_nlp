@@ -7,10 +7,13 @@ This project explores sentiment analysis of reviews from Yelp. While traditional
 Source: https://www.kaggle.com/datasets/ranjulajayarathna/cleaned-yelp-dataset-restaurants-and-reviews?resource=download&select=sampled_yelp_reviews.csv
 
 Text Data: Customer Reviews
+
 Labels: Positive, Negative
 
 Reviews with 4 or 5 stars were labelled as "positive"
+
 Reviews with 1 or 2 stars wre labelled as "negative"
+
 Reviews with neutral sentiment (3 stars) were removed from the dataset
 
 ## Exploratory Data Analysis 
