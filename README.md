@@ -52,6 +52,12 @@ vectorizer = TfidfVectorizer(
 ```
 Linear Support Vector Machine was chosen as the baseline model (why), with the regularisation parameter C = 1 and class_weight = "balanced" to counteract the imbalanced classes.
 
+```
+svm = LinearSVC(
+    C=1.0,
+    class_weight="balanced"  
+)
+```
 DistilBert was selected as the transformer model 
 
 ## Results 
